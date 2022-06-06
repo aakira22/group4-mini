@@ -40,7 +40,7 @@ public class ActivityController {
     public GetAllActivitiesResponse search(@RequestParam(name = "q", required = false, defaultValue = "") String query) {
         List<LogActivity> activities = new ArrayList<>();
 
-        Consumer<Activity> activityConsumer = activity -> activities.add(new LogActivity(activity.getAction(), activity.getInformation(), activity.getInformation()));
+        Consumer<Activity> activityConsumer = activity -> activities.add(new LogActivity(activity.getAction(), activity.getInformation(), activity.getIdentity()));
         if (query.isBlank()) {
             activityRepository.findAll()
                     .forEach(activityConsumer);
