@@ -13,4 +13,7 @@ public class UpdateWalletRequest {
     @NotNull
     @Positive
     private Double balance;
+
+    public UpdateWalletRequest() {
+    }
 }

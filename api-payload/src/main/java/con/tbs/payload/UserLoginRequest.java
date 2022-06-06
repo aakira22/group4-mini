@@ -12,5 +12,7 @@ public class UserLoginRequest {
     @NotBlank
     private String password;
 
+    public UserLoginRequest() {
+    }
 }
 

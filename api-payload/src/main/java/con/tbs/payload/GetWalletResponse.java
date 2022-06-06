@@ -11,5 +11,8 @@ public class GetWalletResponse {
         this.userId = userId;
         this.balance = balance;
     }
+
+    public GetWalletResponse() {
+    }
 }
 

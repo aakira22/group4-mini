@@ -8,5 +8,8 @@ import java.time.LocalDateTime;
 public class UserLoginResponse {
     private String userId;
     private LocalDateTime lastLoggedIn;
+
+    public UserLoginResponse() {
+    }
 }
 

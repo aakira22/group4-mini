@@ -8,4 +8,7 @@ import javax.validation.constraints.NotBlank;
 public class CreateWallet {
     @NotBlank
     private String userId;
+
+    public CreateWallet() {
+    }
 }

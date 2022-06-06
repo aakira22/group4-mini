@@ -27,4 +27,6 @@ public class UserRegistrationRequest {
     @NotBlank
     private String userId;
 
+    public UserRegistrationRequest() {
+    }
 }

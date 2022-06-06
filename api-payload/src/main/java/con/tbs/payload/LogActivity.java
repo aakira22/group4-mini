@@ -10,14 +10,17 @@ public class LogActivity {
     private String action;
 
     @NotBlank
-    private String data;
+    private String information;
 
     @NotBlank
     private String identity;
 
-    public LogActivity(String action, String data, String identity) {
+    public LogActivity(String action, String information, String identity) {
         this.action = action;
-        this.data = data;
+        this.information = information;
         this.identity = identity;
+    }
+
+    public LogActivity() {
     }
 }
