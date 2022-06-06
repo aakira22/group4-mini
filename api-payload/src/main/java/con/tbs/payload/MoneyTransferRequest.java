@@ -2,20 +2,19 @@ package con.tbs.payload;
 
 import lombok.Data;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Data
-public class UpdateWalletRequest {
+public class MoneyTransferRequest {
     @NotBlank
-    private String userId;
+    String senderId;
+    @NotBlank
+    String receiverId;
     @NotNull
     @Positive
-    @Min(value=0L)
-    private Double balance;
+    Double amount;
 
-    public UpdateWalletRequest() {
-    }
+    String message;
 }
