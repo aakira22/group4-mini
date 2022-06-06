@@ -10,14 +10,14 @@ public class LogActivity {
     private String action;
 
     @NotBlank
-    private String data;
+    private String information;
 
     @NotBlank
     private String identity;
 
     public LogActivity(String action, String data, String identity) {
         this.action = action;
-        this.data = data;
+        this.information = data;
         this.identity = identity;
     }
 

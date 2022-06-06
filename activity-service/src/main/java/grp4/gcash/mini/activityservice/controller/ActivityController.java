@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("activity")
@@ -23,7 +25,7 @@ public class ActivityController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void log(@Valid @RequestBody LogActivity request) {
-        Activity activity = new Activity(request.getAction(), request.getData(), request.getIdentity());
+        Activity activity = new Activity(request.getAction(), request.getInformation(), request.getIdentity());
         activityRepository.save(activity);
     }
 
@@ -31,6 +33,23 @@ public class ActivityController {
     public GetAllActivitiesResponse getAllActivities() {
         GetAllActivitiesResponse response = new GetAllActivitiesResponse(activityRepository.count(), new ArrayList<>());
         activityRepository.findAll().forEach(activity -> response.getActivities().add(new LogActivity(activity.getAction(), activity.getInformation(), activity.getIdentity())));
+        return response;
+    }
+
+    @GetMapping("search")
+    public GetAllActivitiesResponse search(@RequestParam(name = "q", required = false, defaultValue = "") String query) {
+        List<LogActivity> activities = new ArrayList<>();
+
+        Consumer<Activity> activityConsumer = activity -> activities.add(new LogActivity(activity.getAction(), activity.getInformation(), activity.getInformation()));
+        if (query.isBlank()) {
+            activityRepository.findAll()
+                    .forEach(activityConsumer);
+        } else {
+            activityRepository.findAllByActionContainingIgnoreCaseOrInformationContainingIgnoreCaseOrIdentityContainingIgnoreCase(query, query, query)
+                    .forEach(activityConsumer);
+        }
+
+        GetAllActivitiesResponse response = new GetAllActivitiesResponse((long) activities.size(), activities);
         return response;
     }
 }
