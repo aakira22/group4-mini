@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caa03cd8-761c-4223-85e5-409ff6816ec1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wallet-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../wallet-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
