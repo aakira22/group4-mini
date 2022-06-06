@@ -25,6 +25,6 @@ public class UserRegistrationRequest {
     private String middleName;
 
     @NotBlank
-    private String mobileNumber;
+    private String userId;
 
 }

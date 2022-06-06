@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class UserLoginResponse {
-    private String mobileNumber;
+    private String userId;
     private LocalDateTime lastLoggedIn;
 }
 

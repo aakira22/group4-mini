@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class UserRegistrationResponse {
-    private String mobileNumber;
+    private String userId;
 
     public UserRegistrationResponse(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
+        this.userId = mobileNumber;
     }
 
     public UserRegistrationResponse() {
