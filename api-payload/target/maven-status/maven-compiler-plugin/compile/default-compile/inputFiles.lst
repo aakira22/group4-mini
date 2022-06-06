@@ -7,6 +7,7 @@
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/UserRegistrationResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/UserDetails.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/UpdateWalletRequest.java
+/Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/MoneyTransferRequest.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/CashInResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/CashInRequest.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/UserLoginResponse.java
@@ -14,4 +15,5 @@
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetWalletResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetAllActivitiesResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetWalletRequest.java
+/Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/MoneyTransferResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetAllUsersResponse.java

@@ -13,7 +13,6 @@ public class UpdateWalletRequest {
     private String userId;
     @NotNull
     @Positive
-    @Min(value=0L)
     private Double balance;
 
     public UpdateWalletRequest() {

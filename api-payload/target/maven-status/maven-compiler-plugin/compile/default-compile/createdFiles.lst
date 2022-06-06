@@ -3,8 +3,10 @@ con/tbs/payload/GetUserResponse.class
 con/tbs/payload/GetWalletRequest.class
 con/tbs/payload/CashInRequest.class
 con/tbs/payload/CashOutResponse.class
+con/tbs/payload/MoneyTransferResponse.class
 con/tbs/payload/UserLoginRequest.class
 con/tbs/payload/UpdateWalletRequest.class
+con/tbs/payload/MoneyTransferRequest.class
 con/tbs/payload/UserLoginResponse.class
 con/tbs/payload/CreateWallet.class
 con/tbs/payload/GetAllUsersResponse.class

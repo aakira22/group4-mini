@@ -17,4 +17,7 @@ public class MoneyTransferResponse {
         this.amount = amount;
         this.message = message;
     }
+
+    public MoneyTransferResponse() {
+    }
 }

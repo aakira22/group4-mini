@@ -17,4 +17,7 @@ public class MoneyTransferRequest {
     Double amount;
 
     String message;
+
+    public MoneyTransferRequest() {
+    }
 }
