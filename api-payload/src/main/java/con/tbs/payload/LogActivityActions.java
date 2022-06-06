@@ -11,5 +11,6 @@ public enum LogActivityActions {
     CASH_OUT_FAILED,
     TRANSFER_SUCCESSFUL,
     TRANSFER_FAILED,
+    GET_SUCCESS,
     GET_FAILED
 }
