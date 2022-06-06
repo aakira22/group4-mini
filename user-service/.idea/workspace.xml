@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caa03cd8-761c-4223-85e5-409ff6816ec1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grp4.gcash.mini.user.App" />
-      <module name="user-service-gcashh" />
+      <module name="user-service" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="grp4.gcash.mini.user.*" />

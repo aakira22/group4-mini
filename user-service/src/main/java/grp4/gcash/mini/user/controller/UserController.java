@@ -7,6 +7,7 @@ import grp4.gcash.mini.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
@@ -26,6 +27,7 @@ public class UserController {
     private final RestTemplate restTemplate;
 
     private final String activityServiceEndpoint;
+    private final String walletServiceEndpoint;
 
     private LogActivity logActivity = new LogActivity();
     private HttpEntity<LogActivity> entity;
@@ -33,11 +35,13 @@ public class UserController {
     public UserController(UserRepository userRepository,
                           PasswordEncoder passwordEncoder,
                           RestTemplate restTemplate,
-                          @Value("${activity-service.endpoint}") String activityServiceEndpoint) {
+                          @Value("${activity-service.endpoint}") String activityServiceEndpoint,
+                          @Value("${wallet-service.endpoint}") String walletServiceEndpoint) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.restTemplate = restTemplate;
         this.activityServiceEndpoint = activityServiceEndpoint;
+        this.walletServiceEndpoint = walletServiceEndpoint;
     }
 
     @PostMapping
@@ -106,6 +110,14 @@ public class UserController {
         userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getUserId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getBalance(), user.getDateCreated())));
 
         return response;
+    }
+
+    public Double getBalance(String userId) {
+        ResponseEntity<GetWalletResponse> senderEntity = restTemplate.getForEntity(walletServiceEndpoint + "/wallet/" + request.getSenderId(), GetWalletResponse.class);
+        if (senderEntity.getStatusCode().is2xxSuccessful()) {
+            GetWalletResponse receiver = senderEntity.getBody();
+            return receiver.getBalance();
+        }
     }
 
     public User getThisUser(String userId) throws UserNotFoundException {
