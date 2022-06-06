@@ -1,4 +1,4 @@
-package grp4.gcash.mini.user.payload;
+package grp4.gcash.mini.user.exception;
 
 public class UserLoginException extends Throwable {
     public UserLoginException() {
