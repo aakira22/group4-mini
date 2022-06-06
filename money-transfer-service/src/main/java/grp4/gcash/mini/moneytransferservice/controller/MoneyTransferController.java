@@ -61,16 +61,24 @@ public class MoneyTransferController {
                     MoneyTransferResponse response =
                             new MoneyTransferResponse(request.getSenderId(), request.getReceiverId(), request.getAmount(), request.getMessage());
 
-                    logActivity.setAction("CREATE_CONTENT_SUCCESSFUL");
+                    logActivity.setAction("MONEY_TRANSFER_SUCCESSFUL");
                     logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
                     logActivity.setIdentity("senderId: " + request.getSenderId());
                     HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
                     return response;
                 }
 
+                logActivity.setAction("MONEY_TRANSFER_FAILED");
+                logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
+                logActivity.setIdentity("senderId: " + request.getSenderId());
+                HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
                 throw new MoneyTransferException("Something went wrong!");
             }
         }
+        logActivity.setAction("MONEY_TRANSFER_FAILED");
+        logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
+        logActivity.setIdentity("senderId: " + request.getSenderId());
+        HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
         throw new InsufficentBalanceException("Insufficient Balance!");
     }
 
