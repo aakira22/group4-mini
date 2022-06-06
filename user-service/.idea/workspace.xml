@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caa03cd8-761c-4223-85e5-409ff6816ec1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/exceptions/UserLoginException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/exceptions/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/exceptions/UserRegistrationException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/UserLoginResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/UserLoginResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/LogActivityActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/LogActivityActions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-payload/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/controller/UserLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/controller/UserLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/controller/UserRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../api-service/src/main/java/grp4/gcash/mini/apiservice/controller/UserRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../api-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/controller/UpdateUserRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/grp4/gcash/mini/user/exception/UserLoginException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
