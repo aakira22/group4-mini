@@ -47,9 +47,43 @@ public class AdminController {
         throw new GetAllException("Something went wrong");
     }
 
+    @GetMapping("search-users")
+    public List<UserDetails> retrieveUsers(@RequestParam(name = "q", required = false, defaultValue = "") String query) throws InconsistentResultException, GetAllException {
+        ResponseEntity<GetAllUsersResponse> entity = restTemplate.getForEntity(userServiceEndpoint + "/user/search?q=" + query, GetAllUsersResponse.class);
+
+        if(entity.getStatusCode().is2xxSuccessful()) {
+            GetAllUsersResponse body = entity.getBody();
+
+            if (body.getCurrentUsers() != (long) body.getUsers().size()) {
+                throw new InconsistentResultException("Returned number of activities didn't match the actual list length");
+            }
+
+            return body.getUsers();
+        }
+
+        throw new GetAllException("Something went wrong");
+    }
+
     @GetMapping("all-activities")
     public List<LogActivity> retrieveAllActivities() throws InconsistentResultException, GetAllException {
         ResponseEntity<GetAllActivitiesResponse> entity = restTemplate.getForEntity(activityServiceEndpoint + "/activity/all", GetAllActivitiesResponse.class);
+
+        if(entity.getStatusCode().is2xxSuccessful()) {
+            GetAllActivitiesResponse body = entity.getBody();
+
+            if (body.getCurrentActivitiesCount() != (long) body.getActivities().size()) {
+                throw new InconsistentResultException("Returned number of activities didn't match the actual list length");
+            }
+
+            return body.getActivities();
+        }
+
+        throw new GetAllException("Something went wrong");
+    }
+
+    @GetMapping("search-activities")
+    public List<LogActivity> retrieveActivities(@RequestParam(name = "q", required = false, defaultValue = "") String query) throws InconsistentResultException, GetAllException {
+        ResponseEntity<GetAllActivitiesResponse> entity = restTemplate.getForEntity(activityServiceEndpoint + "/activity/search?q=" + query, GetAllActivitiesResponse.class);
 
         if(entity.getStatusCode().is2xxSuccessful()) {
             GetAllActivitiesResponse body = entity.getBody();

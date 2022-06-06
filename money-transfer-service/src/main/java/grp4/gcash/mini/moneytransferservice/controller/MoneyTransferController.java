@@ -16,16 +16,21 @@ import java.util.Map;
 public class MoneyTransferController {
     private final RestTemplate restTemplate;
     private final String walletServiceEndpoint;
+    private final String activityServiceEndpoint;
 
-    public MoneyTransferController(RestTemplate restTemplate, @Value("${wallet-service.endpoint}") String walletServiceEndpoint) {
+    public MoneyTransferController(RestTemplate restTemplate,
+                                   @Value("${wallet-service.endpoint}") String walletServiceEndpoint,
+                                   @Value("${activity-service.endpoint}") String activityServiceEndpoint) {
         this.restTemplate = restTemplate;
         this.walletServiceEndpoint = walletServiceEndpoint;
+        this.activityServiceEndpoint = activityServiceEndpoint;
     }
 
     @PostMapping
     public MoneyTransferResponse moneyTransfer(@Valid@RequestBody MoneyTransferRequest request) throws InsufficentBalanceException, MoneyTransferException{
         Double senderBalance = 0.0;
         Double receiverBalance = 0.0;
+        LogActivity logActivity = new LogActivity();
 
         //Get Sender Wallet
         ResponseEntity<GetWalletResponse> senderEntity = restTemplate.getForEntity(walletServiceEndpoint + "/wallet/" + request.getSenderId(), GetWalletResponse.class);
@@ -56,12 +61,24 @@ public class MoneyTransferController {
                     MoneyTransferResponse response =
                             new MoneyTransferResponse(request.getSenderId(), request.getReceiverId(), request.getAmount(), request.getMessage());
 
+                    logActivity.setAction("MONEY_TRANSFER_SUCCESSFUL");
+                    logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
+                    logActivity.setIdentity("senderId: " + request.getSenderId());
+                    HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
                     return response;
                 }
 
+                logActivity.setAction("MONEY_TRANSFER_FAILED");
+                logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
+                logActivity.setIdentity("senderId: " + request.getSenderId());
+                HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
                 throw new MoneyTransferException("Something went wrong!");
             }
         }
+        logActivity.setAction("MONEY_TRANSFER_FAILED");
+        logActivity.setInformation("receiverId: " + request.getReceiverId() + " amount: " + request.getAmount() + " message: " + request.getMessage());
+        logActivity.setIdentity("senderId: " + request.getSenderId());
+        HttpEntity entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
         throw new InsufficentBalanceException("Insufficient Balance!");
     }
 

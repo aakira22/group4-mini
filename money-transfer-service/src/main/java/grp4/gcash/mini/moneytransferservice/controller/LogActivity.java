@@ -1,4 +1,4 @@
-package grp4.gcash.mini.adminservice.payload;
+package grp4.gcash.mini.moneytransferservice.controller;
 
 import lombok.Data;
 
@@ -15,9 +15,9 @@ public class LogActivity {
     @NotBlank
     private String identity;
 
-    public LogActivity(String action, String information, String identity) {
+    public LogActivity(String action, String data, String identity) {
         this.action = action;
-        this.information = information;
+        this.information = data;
         this.identity = identity;
     }
 
