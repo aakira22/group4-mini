@@ -14,6 +14,7 @@
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/LogActivity.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetWalletResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetAllActivitiesResponse.java
+/Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/LogActivityActions.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetWalletRequest.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/MoneyTransferResponse.java
 /Users/christine-a.matienzo/day5project/api-payload/src/main/java/con/tbs/payload/GetAllUsersResponse.java
