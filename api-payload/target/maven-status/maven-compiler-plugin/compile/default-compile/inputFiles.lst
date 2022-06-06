@@ -1,0 +1,13 @@
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/GetAllContentsResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/CreateReviewRequest.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/ReviewResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/LoginResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/GetAllUsersResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/ContentResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/UserRegistrationResponse.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/UserRegistrationRequest.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/LogActivity.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/UserDetails.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/LoginRequest.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/ChangePasswordRequest.java
+/home/orvyl/Documents/JAVA/APPER_PH/apper-intro-microservices/day4/the-blog-system/api-payload/src/main/java/con/tbs/payload/CreateContentRequest.java

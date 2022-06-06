@@ -1,0 +1,13 @@
+con/tbs/payload/UserDetails.class
+con/tbs/payload/ChangePasswordRequest.class
+con/tbs/payload/CreateContentRequest.class
+con/tbs/payload/LoginRequest.class
+con/tbs/payload/LoginResponse.class
+con/tbs/payload/CreateReviewRequest.class
+con/tbs/payload/GetAllUsersResponse.class
+con/tbs/payload/ContentResponse.class
+con/tbs/payload/UserRegistrationResponse.class
+con/tbs/payload/ReviewResponse.class
+con/tbs/payload/LogActivity.class
+con/tbs/payload/GetAllContentsResponse.class
+con/tbs/payload/UserRegistrationRequest.class
