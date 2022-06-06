@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public UserLoginResponse login(@Valid @RequestBody UserLoginRequest request) throws UserNotFoundException {
+    public UserLoginResponse login(@Valid @RequestBody UserLoginRequest request) throws UserNotFoundException, UserLoginException {
         if(!userRepository.existsByEmail(request.getEmail())){
             throw new UserNotFoundException("User not found");
         }
@@ -68,7 +69,10 @@ public class UserController {
 
     @GetMapping("all")
     public GetAllUsersResponse getAllUsers(){
-        //TODO
+        GetAllUsersResponse response = new GetAllUsersResponse(userRepository.count(), new ArrayList<>());
+        userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getMobileNumber(), user.getEmail(), user.getFirstName(), user.getLastName(),user.getDateCreated())));
+
+        return response;
     }
 
     @ExceptionHandler(UserRegistrationException.class)
