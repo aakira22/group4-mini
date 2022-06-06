@@ -1,4 +1,4 @@
-package grp4.gcash.mini.user.payload;
+package grp4.gcash.mini.user.exception;
 
 public class UserNotFoundException extends Exception {
     public UserNotFoundException() {
