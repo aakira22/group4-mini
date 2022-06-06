@@ -23,12 +23,15 @@ public class User {
     private String email;
     private String password;
 
+    private Double balance;
+
     private LocalDateTime lastLoggedIn;
     private LocalDateTime lastUpdated;
     private LocalDateTime dateCreated;
 
     @PrePersist
     public void setPreData() {
+        Double balance = 0.0;
         LocalDateTime now = LocalDateTime.now();
         dateCreated = now;
         lastLoggedIn = now;

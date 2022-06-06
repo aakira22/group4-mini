@@ -4,6 +4,8 @@ import con.tbs.payload.*;
 import grp4.gcash.mini.user.model.User;
 import grp4.gcash.mini.user.exception.*;
 import grp4.gcash.mini.user.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,22 +25,37 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
     private final RestTemplate restTemplate;
 
-    //private final String activityServiceEndpoint;
+    private final String activityServiceEndpoint;
 
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder, RestTemplate restTemplate) {
+    private LogActivity logActivity = new LogActivity();
+    private HttpEntity<LogActivity> entity;
+
+    public UserController(UserRepository userRepository,
+                          PasswordEncoder passwordEncoder,
+                          RestTemplate restTemplate,
+                          @Value("${activity-service.endpoint}") String activityServiceEndpoint) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.restTemplate = restTemplate;
+        this.activityServiceEndpoint = activityServiceEndpoint;
     }
 
     @PostMapping
     public UserRegistrationResponse register(@Valid @RequestBody UserRegistrationRequest request) throws UserRegistrationException {
 
         if (userRepository.existsById(request.getUserId())) {
+            logActivity.setAction(""+LogActivityActions.USER_REGISTRATION_FAILED);
+            logActivity.setInformation("mobileNumber: " + request.getUserId() + " email: " + request.getEmail() + " firstName: " + request.getFirstName() + " lastName:" + request.getLastName());
+            logActivity.setIdentity("mobileNumber: " + request.getUserId());
+            entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
             throw new UserRegistrationException("User already registered!");
         }
 
         if (userRepository.existsByEmail(request.getEmail())) {
+            logActivity.setAction(""+LogActivityActions.USER_REGISTRATION_FAILED);
+            logActivity.setInformation("mobileNumber: " + request.getUserId() + " email: " + request.getEmail() + " firstName: " + request.getFirstName() + " lastName:" + request.getLastName());
+            logActivity.setIdentity("mobileNumber: " + request.getUserId());
+            entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
             throw new UserRegistrationException("Email not available!");
         }
 
@@ -50,6 +67,10 @@ public class UserController {
 
         User savedUser = userRepository.save(user);
 
+        logActivity.setAction(""+LogActivityActions.USER_REGISTRATION_SUCCESSFUL);
+        logActivity.setInformation("mobileNumber: " + request.getUserId() + " email: " + request.getEmail() + " firstName: " + request.getFirstName() + " lastName:" + request.getLastName());
+        logActivity.setIdentity("mobileNumber: " + request.getUserId());
+        entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
         return new UserRegistrationResponse(savedUser.getUserId());
     }
 
@@ -61,8 +82,13 @@ public class UserController {
                 user.getLastName(),
                 user.getMiddleName(),
                 user.getEmail(),
-                user.getPassword());
+                user.getPassword(),
+                user.getBalance());
 
+        logActivity.setAction(""+LogActivityActions.GET_SUCCESS);
+        logActivity.setInformation("mobileNumber: " + id);
+        logActivity.setIdentity("mobileNumber: " + id);
+        entity = restTemplate.postForEntity(activityServiceEndpoint + "/activity", logActivity, LogActivity.class);
         return response;
     }
 
@@ -77,7 +103,7 @@ public class UserController {
     @GetMapping("all")
     public GetAllUsersResponse getAllUsers() {
         GetAllUsersResponse response = new GetAllUsersResponse(userRepository.count(), new ArrayList<>());
-        userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getUserId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getDateCreated())));
+        userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getUserId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getBalance(), user.getDateCreated())));
 
         return response;
     }

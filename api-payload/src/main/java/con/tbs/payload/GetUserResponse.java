@@ -15,6 +15,8 @@ public class GetUserResponse {
     private String email;
     private String password;
 
+    private Double balance;
+
     private LocalDateTime lastLoggedIn;
     private LocalDateTime lastUpdated;
     private LocalDateTime dateCreated;
@@ -26,6 +28,16 @@ public class GetUserResponse {
         this.middleName = middleName;
         this.email = email;
         this.password = password;
+    }
+
+    public GetUserResponse(String userId, String firstName, String lastName, String middleName, String email, String password, Double balance) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.email = email;
+        this.password = password;
+        this.balance = balance;
     }
 
     public GetUserResponse() {

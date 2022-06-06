@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="caa03cd8-761c-4223-85e5-409ff6816ec1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/api-payload-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/LogActivityActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/classes/con/tbs/payload/LogActivityActions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api-payload/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../api-payload/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grp4/gcash/mini/user/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
@@ -27,6 +26,22 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
