@@ -87,7 +87,7 @@ public class UserController {
                 user.getMiddleName(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getBalance());
+                getBalance(user.getUserId()));
 
         logActivity.setAction(""+LogActivityActions.GET_SUCCESS);
         logActivity.setInformation("mobileNumber: " + id);
@@ -107,17 +107,18 @@ public class UserController {
     @GetMapping("all")
     public GetAllUsersResponse getAllUsers() {
         GetAllUsersResponse response = new GetAllUsersResponse(userRepository.count(), new ArrayList<>());
-        userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getUserId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getBalance(), user.getDateCreated())));
+        userRepository.findAll().forEach(user -> response.getUsers().add(new UserDetails(user.getUserId(), user.getEmail(), user.getFirstName(), user.getLastName(), getBalance(user.getUserId()), user.getDateCreated())));
 
         return response;
     }
 
     public Double getBalance(String userId) {
-        ResponseEntity<GetWalletResponse> senderEntity = restTemplate.getForEntity(walletServiceEndpoint + "/wallet/" + request.getSenderId(), GetWalletResponse.class);
-        if (senderEntity.getStatusCode().is2xxSuccessful()) {
-            GetWalletResponse receiver = senderEntity.getBody();
+        ResponseEntity<GetWalletResponse> entity = restTemplate.getForEntity(walletServiceEndpoint + "/wallet/" + userId, GetWalletResponse.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            GetWalletResponse receiver = entity.getBody();
             return receiver.getBalance();
         }
+        return null;
     }
 
     public User getThisUser(String userId) throws UserNotFoundException {
